@@ -6,9 +6,11 @@
     "build": "webpack --config webpack.config.js",
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint .",
+    "format": "prettier --write ."
   },
-  "author": "Touhid Alam",
+  "author": "Touhid Alam <touhidalam69@gmail.com> (https://touhidalam.com)",
   "license": "MIT",
   "description": "A Model Context Protocol (MCP) server for Microsoft SQL Server. This project allows MCP clients to interact with an MS SQL database, providing resources and tools to explore the database schema, execute SQL queries, and more. It also includes an HTTP server for clients that don't use the MCP protocol.",
   "keywords": [

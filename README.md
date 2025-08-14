@@ -1,56 +1,6 @@
-# SQL_MCP
+# Node.js MSSQL MCP Server
 
-A brief description of your project.
-
-## Installation
-
-1. Clone the repository:
-   ```sh
-   git clone https://github.com/touhidalam69/node-mssql-mcp-server.git
-   ```
-2. Navigate to the project directory:
-   ```sh
-   cd sql_mcp
-   ```
-3. Install the dependencies:
-   ```sh
-   npm install
-   ```
-
-## Usage
-
-To start the server, run the following command:
-
-```sh
-npm start
-```
-
-This will start the application, and you can access it at `http://localhost:3000` (or your configured port).
-
-## Configuration
-
-This project uses a `.env` file for environment variables. Create a `.env` file in the root of the project and add the necessary configuration.
-
-Example:
-
-```
-# Port for the server to listen on
-PORT=3000
-
-# Database connection details
-DB_HOST=localhost
-DB_USER=root
-DB_PASSWORD=your_password
-DB_NAME=your_database
-```
-
-## Testing
-
-To run the test suite, use the following command:
-
-```sh
-npm test
-```
+A Model Context Protocol (MCP) server for Microsoft SQL Server. This project allows MCP clients to interact with an MS SQL database, providing resources and tools to explore the database schema, execute SQL queries, and more. It also includes an HTTP server for clients that don't use the MCP protocol.
 
 ## Overview
 
@@ -79,13 +29,14 @@ The server can be run in two modes:
 ## Installation
 
 1.  Clone the repository:
-
     ```bash
-    git clone <repository-url>
+    git clone https://github.com/touhidalam69/node-mssql-mcp-server.git
     ```
-
-2.  Install the dependencies:
-
+2.  Navigate to the project directory:
+    ```bash
+    cd node-mssql-mcp-server
+    ```
+3.  Install the dependencies:
     ```bash
     npm install
     ```
@@ -97,6 +48,16 @@ The database connection is configured using environment variables in a `.env` fi
 ### Single Database Configuration
 
 For a single database connection, use the following environment variables:
+
+| Variable                        | Description                                                                                                                                |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| `MSSQL_SERVER`                  | The IP address or hostname of the SQL Server instance.                                                                                     |
+| `MSSQL_PORT`                    | The port number for the SQL Server instance. Defaults to `1433`.                                                                           |
+| `MSSQL_USER`                    | The username for connecting to the SQL Server.                                                                                             |
+| `MSSQL_PASSWORD`                | The password for the SQL Server user.                                                                                                      |
+| `MSSQL_DATABASE`                | The name of the database to connect to.                                                                                                    |
+| `MSSQL_ENCRYPT`                 | A boolean indicating whether to encrypt the connection. Set to `true` for production environments and Azure. Defaults to `false`.            |
+| `MSSQL_TRUST_SERVER_CERTIFICATE`| A boolean indicating whether to trust the server's certificate. Set to `false` for production environments with a valid certificate. Defaults to `true`. |
 
 ```
 MSSQL_SERVER=your_server_address
@@ -168,7 +129,7 @@ To run the HTTP server, you will need to modify the `start` script in `package.j
 
 ## Testing
 
-To run the tests, use the following command:
+To run the test suite, use the following command:
 
 ```bash
 npm test
@@ -207,3 +168,11 @@ Here is an example configuration:
 *   **`command`**: The command to execute to start the server (e.g., `node`).
 *   **`args`**: An array of arguments to pass to the command. The first argument should be the path to the `src/index.js` file.
 *   **`env`**: An object of environment variables to set for the server process. These variables are used to configure the database connection.
+
+## Contributing
+
+Contributions are welcome! Please see the [CONTRIBUTING.md](CONTRIBUTING.md) file for details.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.

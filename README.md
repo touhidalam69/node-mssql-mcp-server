@@ -176,3 +176,9 @@ Contributions are welcome! Please see the [CONTRIBUTING.md](CONTRIBUTING.md) fil
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Author
+
+*   **Touhid Alam**
+    *   Website: [https://touhidalam.com](https://touhidalam.com)
+    *   GitHub: [@touhidalam69](https://github.com/touhidalam69)

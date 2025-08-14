@@ -1,0 +1,48 @@
+{
+  "name": "mssql-mcp-server",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "webpack --config webpack.config.js",
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "test": "jest"
+  },
+  "author": "Touhid Alam",
+  "license": "MIT",
+  "description": "A Model Context Protocol (MCP) server for Microsoft SQL Server. This project allows MCP clients to interact with an MS SQL database, providing resources and tools to explore the database schema, execute SQL queries, and more. It also includes an HTTP server for clients that don't use the MCP protocol.",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "mssql",
+    "sql-server",
+    "database",
+    "api",
+    "rest",
+    "express",
+    "node"
+  ],
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.9.0",
+    "body-parser": "^2.2.0",
+    "dotenv": "^16.4.7",
+    "express": "^5.1.0",
+    "mssql": "^11.0.1",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "@eslint/js": "^9.24.0",
+    "babel-loader": "^9.2.1",
+    "eslint": "^9.24.0",
+    "globals": "^16.0.0",
+    "jest": "^30.0.5",
+    "nodemon": "^3.1.9",
+    "prettier": "^3.5.3",
+    "supertest": "^7.1.4",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^5.1.4",
+    "webpack-node-externals": "^3.0.0"
+  }
+}

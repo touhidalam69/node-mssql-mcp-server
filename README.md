@@ -58,6 +58,7 @@ For a single database connection, use the following environment variables:
 | `MSSQL_DATABASE`                | The name of the database to connect to.                                                                                                    |
 | `MSSQL_ENCRYPT`                 | A boolean indicating whether to encrypt the connection. Set to `true` for production environments and Azure. Defaults to `false`.            |
 | `MSSQL_TRUST_SERVER_CERTIFICATE`| A boolean indicating whether to trust the server's certificate. Set to `false` for production environments with a valid certificate. Defaults to `true`. |
+| `IS_READONLY`                | Application on Readonly mode | 
 
 ```
 MSSQL_SERVER=your_server_address
@@ -67,6 +68,7 @@ MSSQL_PASSWORD=your_password
 MSSQL_DATABASE=your_database_name
 MSSQL_ENCRYPT=true
 MSSQL_TRUST_SERVER_CERTIFICATE=true
+IS_READONLY=true
 ```
 
 ### Multi-Database Configuration
@@ -156,7 +158,8 @@ Here is an example configuration:
         "MSSQL_PASSWORD": "your_password",
         "MSSQL_DATABASE": "your_database_name",
         "MSSQL_ENCRYPT": "false",
-        "MSSQL_TRUST_SERVER_CERTIFICATE": "true"
+        "MSSQL_TRUST_SERVER_CERTIFICATE": "true",
+        "IS_READONLY": "true"
       }
     }
   }

@@ -1,0 +1,20 @@
+{
+  "mcpServers": {
+    "mediasoft_customer_billing": {
+      "command": "node",
+      "args": [
+        "your_project_path/src/index.js"
+      ],
+      "env": {
+        "MSSQL_SERVER": "your_server_address",
+        "MSSQL_PORT": "1433",
+        "MSSQL_USER": "your_username",
+        "MSSQL_PASSWORD": "your_password",
+        "MSSQL_DATABASE": "your_database_name",
+        "MSSQL_ENCRYPT": "false",
+        "MSSQL_TRUST_SERVER_CERTIFICATE": "true",
+        "IS_READONLY": "true"
+      }
+    }
+  }
+}

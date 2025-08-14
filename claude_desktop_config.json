@@ -2,9 +2,7 @@
   "mcpServers": {
     "mediasoft_customer_billing": {
       "command": "node",
-      "args": [
-        "your_project_path/src/index.js"
-      ],
+      "args": ["your_project_path/src/index.js"],
       "env": {
         "MSSQL_SERVER": "your_server_address",
         "MSSQL_PORT": "1433",

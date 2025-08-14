@@ -1,5 +1,17 @@
 blank_issues_enabled: false
 contact_links:
-  - name: Ask a question
-    url: https://github.com/touhidalam69/node-mssql-mcp-server/discussions/new
-    about: Please ask and answer questions here.
+  - name: 📧 Security Vulnerability Report
+    url: mailto:touhidalam69@gmail.com
+    about: Please report security vulnerabilities directly to the maintainer.
+  - name: 🌐 Visit My Website
+    url: https://touhidalam.com
+issue_templates:
+  - name: 🐛 Bug Report
+    description: Report a reproducible bug or error in node-mssql-mcp-server.
+    filename: bug_report.md
+  - name: ✨ Feature Request
+    description: Suggest a new feature or improvement for the project.
+    filename: feature_request.md
+  - name: 📝 Custom Issue
+    description: Open a general discussion or ask a question.
+    filename: custom_issue.md

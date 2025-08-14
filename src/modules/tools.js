@@ -1,8 +1,5 @@
 const { getPool } = require("../db/connection");
-const {
-  dbConfigs,
-  getConnectionStatus,
-} = require("../config/dbConfig");
+const { dbConfigs, getConnectionStatus } = require("../config/dbConfig");
 const {
   dbKeyTableSchema,
   dbKeyQuerySchema,
@@ -135,7 +132,7 @@ async function executeSql(query, dbKey) {
                   "Query contains potentially unsafe operations and was blocked for security",
               },
               null,
-              2
+              2,
             ),
           },
         ],
@@ -192,9 +189,7 @@ async function getTableSchema(table, dbKey) {
     const { table: validTable } = validSchema;
 
     const pool = await getPool(dbKey);
-    const result = await pool.request()
-      .input("tableName", validTable)
-      .query(`
+    const result = await pool.request().input("tableName", validTable).query(`
         SELECT COLUMN_NAME, DATA_TYPE, CHARACTER_MAXIMUM_LENGTH
         FROM INFORMATION_SCHEMA.COLUMNS
         WHERE TABLE_NAME = @tableName
@@ -218,7 +213,7 @@ async function getTableSchema(table, dbKey) {
     };
   } catch (error) {
     console.error(
-      `Error retrieving schema for table '${table}': ${error.message}`
+      `Error retrieving schema for table '${table}': ${error.message}`,
     );
     return {
       content: [
@@ -270,7 +265,7 @@ async function listDatabases() {
               defaultDatabase: Object.keys(dbConfigs)[0],
             },
             null,
-            2
+            2,
           ),
         },
       ],

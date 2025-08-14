@@ -58,11 +58,11 @@ function validate(schema, data) {
 function detectConfigMode() {
   // Check for multi-database mode by looking for any MSSQL_*_DATABASE environment variables
   const hasMultiDb = Object.keys(process.env).some((envKey) =>
-    envKey.match(/^MSSQL_(.+)_DATABASE$/)
+    envKey.match(/^MSSQL_(.+)_DATABASE$/),
   );
 
   const hasSingleDb = Boolean(
-    process.env.MSSQL_SERVER || process.env.MSSQL_DATABASE
+    process.env.MSSQL_SERVER || process.env.MSSQL_DATABASE,
   );
 
   if (hasMultiDb) {
@@ -71,7 +71,7 @@ function detectConfigMode() {
     return "single";
   } else {
     throw new Error(
-      "[config] No valid database configuration found. Please set either MSSQL_* variables for single-database mode or MSSQL_<DBNAME>_* variables for multi-database mode."
+      "[config] No valid database configuration found. Please set either MSSQL_* variables for single-database mode or MSSQL_<DBNAME>_* variables for multi-database mode.",
     );
   }
 }
@@ -105,7 +105,7 @@ function loadSingleDatabaseConfig() {
 
   if (!config.user || !config.password || !config.database) {
     throw new Error(
-      "[config] Missing required database credentials. Please set MSSQL_USER, MSSQL_PASSWORD, and MSSQL_DATABASE."
+      "[config] Missing required database credentials. Please set MSSQL_USER, MSSQL_PASSWORD, and MSSQL_DATABASE.",
     );
   }
 
@@ -171,7 +171,7 @@ function loadMultiDatabaseConfigs() {
           dbConfigs[dbKey] = validate(dbConnectionSchema, config);
         } else {
           errors.push(
-            `[config] Incomplete configuration for database ${dbKey}. Missing user, password, or database name.`
+            `[config] Incomplete configuration for database ${dbKey}. Missing user, password, or database name.`,
           );
         }
       } catch (error) {
@@ -182,7 +182,7 @@ function loadMultiDatabaseConfigs() {
 
   if (Object.keys(dbConfigs).length === 0) {
     throw new Error(
-      `[config] No valid database configurations found. ${errors.join(" ")}`
+      `[config] No valid database configurations found. ${errors.join(" ")}`,
     );
   }
 
@@ -229,7 +229,7 @@ function getDbConfig(dbKey) {
     const key = dbKey.toLowerCase();
     if (!dbConfigs[key]) {
       throw new Error(
-        `[config] Invalid dbKey '${dbKey}'. Available: ${Object.keys(dbConfigs).join(", ")}`
+        `[config] Invalid dbKey '${dbKey}'. Available: ${Object.keys(dbConfigs).join(", ")}`,
       );
     }
     return dbConfigs[key];

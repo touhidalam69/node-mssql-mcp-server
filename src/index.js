@@ -31,7 +31,7 @@ const server = new Server(
       resources: {},
       tools: {},
     },
-  }
+  },
 );
 
 // List available resources

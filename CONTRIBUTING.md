@@ -23,7 +23,7 @@ Unsure where to begin contributing? You can start by looking through `good first
 ### Pull Requests
 
 1.  **Fork the repository** and create your branch from `main`.
-2.  **Set up your development environment:** 
+2.  **Set up your development environment:**
     - Clone your forked repository.
     - Run `npm install` to install all the necessary dependencies.
     - Create a `.env` file in the root of the project. You can copy the `.env.example` file and fill in the necessary values for your local database setup.

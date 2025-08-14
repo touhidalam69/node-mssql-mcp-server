@@ -8,23 +8,23 @@ This project is a Model Context Protocol (MCP) server that allows clients to int
 
 The server can be run in two modes:
 
-*   **MCP Server over Stdio:** This is the primary mode of operation, designed for integration with MCP clients.
-*   **HTTP Server:** An Express server that exposes the same functionality over an HTTP API.
+- **MCP Server over Stdio:** This is the primary mode of operation, designed for integration with MCP clients.
+- **HTTP Server:** An Express server that exposes the same functionality over an HTTP API.
 
 ## Features
 
-*   Connect to one or more MS SQL Server databases.
-*   List all tables in a database as MCP resources.
-*   Read the top 100 rows from a table.
-*   Execute SQL queries with a safety check to prevent dangerous operations.
-*   Retrieve the schema of a table.
-*   List all configured databases.
+- Connect to one or more MS SQL Server databases.
+- List all tables in a database as MCP resources.
+- Read the top 100 rows from a table.
+- Execute SQL queries with a safety check to prevent dangerous operations.
+- Retrieve the schema of a table.
+- List all configured databases.
 
 ## Prerequisites
 
-*   Node.js (v14 or later)
-*   npm
-*   A running Microsoft SQL Server instance
+- Node.js (v14 or later)
+- npm
+- A running Microsoft SQL Server instance
 
 ## Installation
 
@@ -49,16 +49,16 @@ The database connection is configured using environment variables in a `.env` fi
 
 For a single database connection, use the following environment variables:
 
-| Variable                        | Description                                                                                                                                |
-| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| `MSSQL_SERVER`                  | The IP address or hostname of the SQL Server instance.                                                                                     |
-| `MSSQL_PORT`                    | The port number for the SQL Server instance. Defaults to `1433`.                                                                           |
-| `MSSQL_USER`                    | The username for connecting to the SQL Server.                                                                                             |
-| `MSSQL_PASSWORD`                | The password for the SQL Server user.                                                                                                      |
-| `MSSQL_DATABASE`                | The name of the database to connect to.                                                                                                    |
-| `MSSQL_ENCRYPT`                 | A boolean indicating whether to encrypt the connection. Set to `true` for production environments and Azure. Defaults to `false`.            |
-| `MSSQL_TRUST_SERVER_CERTIFICATE`| A boolean indicating whether to trust the server's certificate. Set to `false` for production environments with a valid certificate. Defaults to `true`. |
-| `IS_READONLY`                | Application on Readonly mode | 
+| Variable                         | Description                                                                                                                                              |
+| -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `MSSQL_SERVER`                   | The IP address or hostname of the SQL Server instance.                                                                                                   |
+| `MSSQL_PORT`                     | The port number for the SQL Server instance. Defaults to `1433`.                                                                                         |
+| `MSSQL_USER`                     | The username for connecting to the SQL Server.                                                                                                           |
+| `MSSQL_PASSWORD`                 | The password for the SQL Server user.                                                                                                                    |
+| `MSSQL_DATABASE`                 | The name of the database to connect to.                                                                                                                  |
+| `MSSQL_ENCRYPT`                  | A boolean indicating whether to encrypt the connection. Set to `true` for production environments and Azure. Defaults to `false`.                        |
+| `MSSQL_TRUST_SERVER_CERTIFICATE` | A boolean indicating whether to trust the server's certificate. Set to `false` for production environments with a valid certificate. Defaults to `true`. |
+| `IS_READONLY`                    | Application on Readonly mode                                                                                                                             |
 
 ```
 MSSQL_SERVER=your_server_address
@@ -109,25 +109,25 @@ To run the HTTP server, you will need to modify the `start` script in `package.j
 
 ### MCP Resources
 
-*   **`mssql://<table>/data`**: Represents a table in the database. Reading this resource will return the top 100 rows from the table in CSV format.
+- **`mssql://<table>/data`**: Represents a table in the database. Reading this resource will return the top 100 rows from the table in CSV format.
 
 ### MCP Tools
 
-*   **`execute_sql`**: Executes a SQL query.
-    *   **Input:** `{ "query": "<sql-query>", "dbKey": "<database-key>" }`
-*   **`get_table_schema`**: Retrieves the schema of a table.
-    *   **Input:** `{ "table": "<table-name>", "dbKey": "<database-key>" }`
-*   **`list_databases`**: Lists all configured databases.
-    *   **Input:** `{}`
+- **`execute_sql`**: Executes a SQL query.
+  - **Input:** `{ "query": "<sql-query>", "dbKey": "<database-key>" }`
+- **`get_table_schema`**: Retrieves the schema of a table.
+  - **Input:** `{ "table": "<table-name>", "dbKey": "<database-key>" }`
+- **`list_databases`**: Lists all configured databases.
+  - **Input:** `{}`
 
 ### HTTP API Endpoints
 
-*   **`GET /resources`**: Lists all tables as resources.
-*   **`GET /resource?uri=<uri>`**: Reads data from a resource.
-*   **`GET /tools`**: Lists available tools.
-*   **`GET /databases`**: Lists all configured databases.
-*   **`POST /execute-sql`**: Executes an SQL query.
-*   **`POST /get-table-schema`**: Retrieves the schema of a table.
+- **`GET /resources`**: Lists all tables as resources.
+- **`GET /resource?uri=<uri>`**: Reads data from a resource.
+- **`GET /tools`**: Lists available tools.
+- **`GET /databases`**: Lists all configured databases.
+- **`POST /execute-sql`**: Executes an SQL query.
+- **`POST /get-table-schema`**: Retrieves the schema of a table.
 
 ## Testing
 
@@ -148,9 +148,7 @@ Here is an example configuration:
   "mcpServers": {
     "mediasoft_customer_billing": {
       "command": "node",
-      "args": [
-        "your_project_path/src/index.js"
-      ],
+      "args": ["your_project_path/src/index.js"],
       "env": {
         "MSSQL_SERVER": "your_server_address",
         "MSSQL_PORT": "1433",
@@ -168,9 +166,9 @@ Here is an example configuration:
 
 ### Configuration Options
 
-*   **`command`**: The command to execute to start the server (e.g., `node`).
-*   **`args`**: An array of arguments to pass to the command. The first argument should be the path to the `src/index.js` file.
-*   **`env`**: An object of environment variables to set for the server process. These variables are used to configure the database connection.
+- **`command`**: The command to execute to start the server (e.g., `node`).
+- **`args`**: An array of arguments to pass to the command. The first argument should be the path to the `src/index.js` file.
+- **`env`**: An object of environment variables to set for the server process. These variables are used to configure the database connection.
 
 ## Contributing
 
@@ -182,6 +180,6 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Author
 
-*   **Touhid Alam**
-    *   Website: [https://touhidalam.com](https://touhidalam.com)
-    *   GitHub: [@touhidalam69](https://github.com/touhidalam69)
+- **Touhid Alam**
+  - Website: [https://touhidalam.com](https://touhidalam.com)
+  - GitHub: [@touhidalam69](https://github.com/touhidalam69)

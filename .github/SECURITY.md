@@ -4,10 +4,10 @@
 
 We actively maintain and provide security updates for the following versions:
 
-| Version     | Supported          |
-|-------------|--------------------|
-| latest (main branch) | ✅ |
-| older versions        | ❌ |
+| Version              | Supported |
+| -------------------- | --------- |
+| latest (main branch) | ✅        |
+| older versions       | ❌        |
 
 If you are running an outdated version, please update to the latest commit from the `main` branch to ensure you have the latest security fixes.
 

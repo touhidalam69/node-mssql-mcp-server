@@ -69,7 +69,9 @@ async function readResource(uri, dbKey) {
     const table = parts[0];
 
     const pool = await getPool(dbKey);
-    const result = await pool.request().query(`SELECT TOP 100 * FROM [${table}]`);
+    const result = await pool
+      .request()
+      .query(`SELECT TOP 100 * FROM [${table}]`);
 
     const columns =
       result.recordset.length > 0 ? Object.keys(result.recordset[0]) : [];
@@ -87,7 +89,7 @@ async function readResource(uri, dbKey) {
           typeof value === "string" &&
           (value.includes(",") || value.includes('"') || value.includes("\n"))
         ) {
-          return `"${value.replace( /"/g, '""')}"`;
+          return `"${value.replace(/"/g, '""')}"`;
         }
         return value;
       });
@@ -95,9 +97,7 @@ async function readResource(uri, dbKey) {
     });
     return csvRows.join("\n");
   } catch (error) {
-    console.error(
-      `Database error reading resource ${uri}: ${error.message}`
-    );
+    console.error(`Database error reading resource ${uri}: ${error.message}`);
     throw new Error(`Database error: ${error.message}`);
   }
 }

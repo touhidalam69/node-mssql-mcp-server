@@ -186,7 +186,7 @@ app.get("/health", async (req, res, next) => {
 
   try {
     const healthChecks = await Promise.allSettled(
-      dbKeys.map(key => getPool(key))
+      dbKeys.map((key) => getPool(key)),
     );
 
     const results = {};
@@ -199,7 +199,10 @@ app.get("/health", async (req, res, next) => {
       } else {
         results[dbKey] = "error";
         isHealthy = false;
-        console.error(`Health check failed for ${dbKey}:`, result.reason.message);
+        console.error(
+          `Health check failed for ${dbKey}:`,
+          result.reason.message,
+        );
       }
     });
 
